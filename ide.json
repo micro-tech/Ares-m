@@ -1,0 +1,203 @@
+{
+	"cors": {
+		"origins": [ "http://localhost:9009" ],
+		"methods": []
+	},
+	"language": "en",
+	"globalProxyUrl": null,
+	"headers": {},
+	"services": [
+		{
+			"active":true,
+			"id":"home",
+			"icon":"$assets/harmonia/images/providers/home-32x32.png",
+			"name":"Home Directory",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsLocal.js", "--level", "http", "--pathname", "/files", "--port", "0", "--root", "@HOME@", "--timeout", "120000"
+			],
+			"useJsonp":false,
+			"respawn": false
+		},
+		{
+			"active":false,
+			"id":"dropbox",
+			"icon":"$assets/harmonia/images/providers/dropbox.com-32x32.png",
+			"name":"Dropbox",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsDropbox.js", "-P", "/files", "-p", "0"
+			],
+			"auth": {
+				"type": "dropbox",
+				"appKey": "p4292kn1wwcfadj",
+				"appSecret": "nhzd9cbbxp18wno"
+			},
+			"Xproxy":{
+				"http":{
+					"tunnel":"OverHttp",
+					"host":"web-proxy.corp.hp.com",
+					"port":8080
+				},
+				"https":{
+					"tunnel":"OverHttp",
+					"host":"web-proxy.corp.hp.com",
+					"port":8080
+				}
+			},
+			"useJsonp":false
+		},
+		{
+			"active":true,
+			"id":"phonegap",
+			"icon":"$assets/harmonia/images/providers/build.phonegap.com-32x32.png",
+			"name":"PhoneGap Build",
+			"type": ["build"],
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/bdPhoneGap.js", "--level", "http", "-P", "/phonegap", "-p", "0", "-t", "240000"
+			],
+			"useJsonp":false,
+			"XproxyUrl": "http://web-proxy.corp.hp.com:8080",
+			"timeout": 240000,
+			"auth": {
+				"type": "phonegap"
+			},
+			"performCleanup": true,
+			"respawn": false
+		},
+		{
+			"active": true,
+			"id":"genZip",
+			"name":"ZIP-files Project Generator",
+			"type": ["generate"],
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/genZip.js", "--level", "https", "-P", "/genzip", "-p", "0", "-t", "120000"
+			],
+			"timeout": 30000,
+			"XproxyUrl": "http://web-proxy.corp.hp.com:8080",
+			"sources": [
+				{
+					"id": "bootplate-2.3.0-pre.12",
+					"isDefault": true,
+					"type": "template",
+					"files": [
+						{
+							"url": "http://enyojs.com/archive/bootplate-2.3.0-pre.12.zip",
+							"prefixToRemove": "bootplate",
+							"excluded": [
+								"bootplate/api/",
+								"bootplate/build/",
+								"bootplate/deploy/",
+								"bootplate/enyo/tools/"
+      						]
+						}
+  					],
+					"description": "Enyo bootplate 2.3.0-pre.12 (Recommended)"
+				},
+				{
+					"id": "Boot Plate 2.5.1.1-m",
+					"type": "template",
+					"files": [
+						{
+							"url": "https://app.box.com/shared/static/p1zqgnzuoa8d1n70budsh73n2benudbz.zip",
+							"prefixToRemove": "bootplate-2.5.1.1",
+							"excluded": [
+								"bootplate-2.5.1.1/enyo/docs/",
+								"bootplate-2.5.1.1/build/",
+								"bootplate-2.5.1.1/deploy/",
+								"bootplate-2.5.1.1/enyo/tools/"
+							]
+						}
+					],
+					"description": "Micro-tech BootPlate 2.5.1.1-M"
+				},
+				{
+					"id": "BootPlate Enyo 2.6",
+					"type": "template",
+					"files": [
+						{
+						"url": "@INSTALLDIR@/templates/Enyo_BP_2.6/"
+						}
+					],
+					"description": "Enyo 2.6 BootPlate"	
+				}
+			],
+
+			"respawn": false
+		},
+		{
+			"active":false,
+			"id":"Example",
+			"icon":"$assets/harmonia/images/providers/box_white-32x32.png",
+			"name":"Example drive",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsLocal.js", "--level", "http", "--pathname", "/files", "--port", "0", "--root", "@HOME@\\Example dir"
+			],
+			"useJsonp":false,
+			"respawn": false
+		},
+		{
+			"active":true,
+			"id":"one Drive",
+			"icon":"$assets/harmonia/images/providers/sky.png",
+			"name":"OneDrive Sync Dir",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsLocal.js", "--level", "http", "--pathname", "/files", "--port", "0", "--root", "@HOME@\\OneDrive"
+			],
+			"useJsonp":false,
+			"verbose": false,
+			"respawn": false
+		},
+
+		{
+			"active":true,
+			"id":"Box",
+			"icon":"$assets/harmonia/images/providers/box_sync32x32.png",
+			"name":"Box Sync Dir",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsLocal.js", "--level", "http", "--pathname", "/files", "--port", "0", "--root", "@HOME@\\Documents\\My Box Files\\Default Sync Folder\\"
+			],
+			"useJsonp":false,
+			"verbose": false,
+			"respawn": false
+		},
+
+		{
+			"active":true,
+			"id":"Google Drive",
+			"icon":"$assets/harmonia/images/providers/drive_tile-32.png",
+			"name":"Google Sync Dir",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsLocal.js", "--level", "http", "--pathname", "/files", "--port", "0", "--root", "@HOME@\\Google Drive"
+			],
+			"useJsonp":false,
+			"verbose": false,
+			"respawn": false
+		},
+
+		{
+			"active":true,
+			"id":"true image Dir",
+			"icon":"$assets/harmonia/images/providers/dir.png",
+			"name":"True image Dir",
+			"type": ["filesystem"],
+			"provider": "hermes",
+			"command":"@NODE@", "params":[
+				"@INSTALLDIR@/hermes/fsLocal.js", "--level", "http", "--pathname", "/files", "--port", "0", "--root", "@HOME@\\Sync"
+			],
+			"useJsonp":false,
+			"verbose": false,
+			"respawn": false
+		}
+	]
+}

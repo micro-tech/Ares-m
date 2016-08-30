@@ -1,0 +1,22 @@
+{
+	"enyo": "./enyo",
+	"packagejs": "./package.js",
+	"assets": [
+		"./index.html",
+		"./assets",
+		"./bin",
+		"./ide.json",
+		"./ide.js",
+		"./hermes",
+		"./node_modules",
+		"./package.json",
+		"./package.js",
+		"./templates",
+		"./ares-rules.less",
+		"./ares-variables.less",
+		"./Ares.less",
+		"./lib/foss/ace-builds/src-min",
+		"./lib/foss/state-machine.min.js"
+	],
+	"libs": ["./lib/onyx", "./lib/layout", "./lib/extra", "./lib/enyo-ilib", "./lib/extra"]
+}

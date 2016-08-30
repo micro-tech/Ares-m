@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.micro-tech-mich.AresM" version="M.2.14">
+				<!-- ***				  WARNING			     *** -->
+				<!-- ***		This is an automatically generated document.	     *** -->
+				<!-- *** Do not edit it: your changes would be automatically overwritten *** -->
+				<name>Ares2</name>
+				<description>Ares2 Enyo ide </description>
+				<author href="johnmcconnell@yahoo.com">john mcconnell</author>
+				<!-- Platforms -->
+				<gap:platform name="webos" />
+				<!-- Features -->
+				<preference name="permissions" value="none" />
+				<!-- Preferences -->
+				<preference name="phonegap-version" value="3.1.0" />
+				<preference name="orientation" value="both" />
+				<preference name="target-device" value="universal" />
+				<preference name="fullscreen" value="false" />
+				<preference name="android-installLocation" value="internalOnly" />
+				<preference name="android-minSdkVersion" value="7" />
+				<preference name="android-targetSdkVersion" value="None" />
+				<preference name="android-maxSdkVersion" value="None" />
+				<preference name="android-windowSoftInputMode" value="stateVisible" />
+				<preference name="splash-screen-duration" value="5000" />
+				<preference name="load-url-timeout" value="20000" />
+				<preference name="webviewbounce" value="true" />
+				<preference name="prerendered-icon" value="false" />
+				<preference name="ios-statusbarstyle" value="black-opaque" />
+				<preference name="detect-data-types" value="true" />
+				<preference name="exit-on-suspend" value="false" />
+				<preference name="show-splash-screen-spinner" value="false" />
+				<preference name="auto-hide-splash-screen" value="true" />
+				<preference name="disable-cursor" value="false" />
+				<!-- Plugins -->
+				<!-- Define app icon for each platform -->
+				<icon src="icon.png" />
+				<icon src="uments/GitHub/ares-project/assets/images/ares_48x48.ico" gap:platform="webos" />
+				<!-- Define app splash screen for each platform -->
+				<gap:splash src="icon.png" />
+				<!-- Access external websites ressources -->
+				<access origin="" />
+</widget>
