@@ -4,23 +4,18 @@ ChangeLog
 08/27/2016   Micro-tech
 Ares-M
 
-Brief Add 
+Brief:
+Now Working with Enyo 0.2.6
 
 
 
-Upgrade some of the node modules
-
-Add a workaround for error for booting enyo   in the boot.js file
-
-Add enyo.ready to adjustFrameworkFeatures
-
-
-Add a windows build and deploy script
-
-
-Added Icron for the drives 
-
-Updated Ace to lates
+Details:
+*Upgrade some of the node modules
+*Add a workaround for error for booting enyo   in the boot.js file
+*Add enyo.ready to adjustFrameworkFeatures
+*Add a windows build and deploy script
+*Added Icron for the drives 
+*Updated Ace to lates
 
 
 

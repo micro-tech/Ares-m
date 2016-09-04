@@ -1,7 +1,7 @@
 {
   "id": "com.micro-tech-mich.AresM",
-  "name": "Ares-M-2.14",
-  "version": "0.2.15",
+  "name": "Ares-M",
+  "version": "0.2.18",
   "title": "AresM",
   "description": "AresM Enyo ide ",
   "author": {
@@ -101,9 +101,6 @@
         "webos": {}
       },
       "appId": ""
-    },
-    "webos": {
-      "enabled": true
     }
   },
   "preview": {
