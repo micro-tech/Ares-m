@@ -73,7 +73,7 @@
 			"name":"ZIP-files Project Generator",
 			"type": ["generate"],
 			"command":"@NODE@", "params":[
-				"@INSTALLDIR@/hermes/genZip.js", "--level", "https", "-P", "/genzip", "-p", "0", "-t", "120000"
+				"@INSTALLDIR@/hermes/genZip.js", "--level", "https", "-P", "/genzip", "-p", "0", "-t", "220000"
 			],
 			"timeout": 30000,
 			"XproxyUrl": "http://web-proxy.corp.hp.com:8080",
@@ -122,6 +122,17 @@
 						}
 					],
 					"description": "Enyo 2.6 BootPlate"	
+				},
+				{
+					"id": "BootPlate Enyo 2.6 ZIP",
+					"type": "template",
+					"files": [
+						{
+						"url": "@INSTALLDIR@/templates/Enyo_BP_2.6.zip",
+						"prefixToRemove": "Enyo_BP_2.6"
+						}
+					],
+					"description": "Enyo 2.6 BootPlate ZIP"	
 				}
 			],
 
