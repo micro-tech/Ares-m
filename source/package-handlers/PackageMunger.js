@@ -9,7 +9,7 @@
 enyo.kind({
 	name: "Ares.PackageMunger",
 	kind: "enyo.Component",
-	debug: false,
+	debug: true,
 	events: {
 		onChangingNode: ""
 	},
@@ -138,6 +138,7 @@ enyo.kind({
 	/** @private */
 	_packageRead: function(service, pkgNode, next) {
 		this.trace("pkgNode:", pkgNode);
+		this._testFor(service);
 		service.getFile(pkgNode.id)
 			.response(this, function(inSender, inContent) {
 				next(null, pkgNode, inContent.content);
@@ -204,5 +205,19 @@ enyo.kind({
 		} else {
 			next(null, null);
 		}
+	},
+	
+	_testFor: function(service){
+	this.trace("testFor:", "json");
+		service.getFile("package.json")
+			.response(this, function(inSender, inContent) {
+				this.trace(inSender, inContent);
+		
+			//	next(null, pkgNode, inContent.content);
+			});
 	}
+	
+	
+	
+	
 });
