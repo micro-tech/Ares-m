@@ -1,7 +1,7 @@
 /* jshint node:true */
 /**
  * fsLocal.js -- Ares FileSystem (fs) provider, using local files.
- * 
+ *
  * This FileSystemProvider is both the simplest possible one
  * and a working sample for other implementations.
  */
@@ -157,8 +157,8 @@ FsLocal.prototype._propfind = function(err, relPath, depth, next) {
 	if (path.basename(relPath).charAt(0) ===".") {
 		// Skip hidden files & folders (using UNIX
 		// convention: XXX do it for Windows too)
-		setImmediate(next);
-		return;
+	  //	setImmediate(next);      // commit out to show . hidden file
+		// return;                   // commit out to show . hidden file 
 	}
 
 	fs.stat(localPath, (function(err, stat) {
@@ -246,15 +246,15 @@ FsLocal.prototype._getFile = function(req, res, next) {
 				setImmediate(next);
 			});
 		} else if (stat.isDirectory() && req.param('format') === 'base64') {
-			
+
 			// Return the folder content as a FormData filled with base64 encoded file content
-			
+
 			var depthStr = req.param('depth');
 			var depth = depthStr ? (depthStr === 'infinity' ? -1 : parseInt(depthStr, 10)) : 1;
 			log.verbose("FsLocal#_getFile()", "Preparing dir in base64, depth: " + depth + " " + localPath);
 			self._propfind(null, req.param('path'), depth, function(err, content){
 				var parts = [];
-				
+
 				function addParts(entries) {
 					entries.forEach(function(entry) {
 						if (entry.isDir) {
@@ -269,11 +269,11 @@ FsLocal.prototype._getFile = function(req, res, next) {
 						}
 					});
 				}
-				
+
 				addParts(content.children);
 				self.returnFormData(parts, res, next);
 			});
-			
+
 		} else {
 			next(new Error("not a file: '" + localPath + "'"));
 		}
@@ -302,13 +302,13 @@ FsLocal.prototype._rmrf = function(localPath, next) {
 			} else {
 				files.forEach(function(file) {
 					var sub = path.join(localPath, file);
-					
+
 					this._rmrf(sub, function(err) {
 						if (err) {
 							next(err);
 							return;
 						}
-						
+
 						if (++count == files.length) {
 							return fs.rmdir(localPath, next);
 						}
@@ -326,9 +326,9 @@ FsLocal.prototype.putFile = function(req, file, next) {
 	    encodeFileId = this.encodeFileId,
 	    overwriteParam = req.param('overwrite') !== "false",
 	    node;
-	
+
 	log.verbose("FsLocal#putFile()", "file.name:", file.name, "-> absPath:", absPath);
-	
+
 	async.series([
 		this._checkOverwrite.bind(this, absPath, overwriteParam),
 		mkdirp.bind(null, dir),
@@ -500,7 +500,7 @@ FsLocal.prototype._changeNode = function(req, res, op, next) {
 							});
 						});
 					}).bind(this));
-				} else { 
+				} else {
 					setImmediate(next, new HttpError('Destination already exists', 412 /*Precondition-Failed*/));
 				}
 			}
@@ -551,7 +551,7 @@ FsLocal.prototype._cpr = function(srcPath, dstPath, next) {
 
 if (path.basename(process.argv[1], '.js') === basename) {
 	// We are main.js: create & run the object...
-	
+
 	var knownOpts = {
 		"root":		path,
 		"port":		Number,
