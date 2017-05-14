@@ -114,25 +114,29 @@
 					"description": "Micro-tech BootPlate 2.5.1.1-M"
 				},
 				{
-					"id": "BootPlate Enyo 2.6",
-					"type": "template",
-					"files": [
-						{
-						"url": "@INSTALLDIR@/templates/Enyo_BP_2.6/"
-						}
-					],
-					"description": "Enyo 2.6 BootPlate"	
-				},
-				{
 					"id": "BootPlate Enyo 2.6 ZIP",
 					"type": "template",
 					"files": [
 						{
-						"url": "@INSTALLDIR@/templates/Enyo_BP_2.6.zip",
-						"prefixToRemove": "Enyo_BP_2.6"
+							"url": "@INSTALLDIR@/templates/Enyo_BP_2.6.zip",
+							"prefixToRemove": "Enyo_BP_2.6",
+							"excluded": [
+								"Enyo_BP_2.6/enyo/docs/"
+							]
 						}
 					],
 					"description": "Enyo 2.6 BootPlate ZIP"	
+				},
+				{
+					"id": "BootPlate Enyo 2.7 ZIP",
+					"type": "template",
+					"files": [
+						{
+							"url": "@INSTALLDIR@/templates/Enyo_BP_2.7.zip",
+							"prefixToRemove": "Enyo_BP_2.7"
+						}
+					],
+					"description": "Enyo 2.7 BootPlate ZIP"	
 				}
 			],
 

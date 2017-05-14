@@ -121,9 +121,9 @@ enyo.kind({
 		return true;
 	},
 
-	// /**
-	//  * close one drawer and open the other depending on which radio button was tapped
-	//  */
+	 /**
+	 * close one drawer and open the other depending on which radio button was tapped
+	 */
 	switchDrawers: function(inSender, inEvent) {
 		this.initDrawers();
 		if (inEvent.originator.active === true ) {

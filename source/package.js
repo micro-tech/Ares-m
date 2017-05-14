@@ -5,7 +5,6 @@ enyo.depends(
 	"DocumentToolbar.js",
 	"FileData.js",
 	"WorkspaceData.js",
-	"PackageMunger.js",
 	"EnyoEditor.js",
 	"utilities",
 	"enyo-editor",
@@ -13,5 +12,6 @@ enyo.depends(
 	"project-view",
 	"data",
 	"styles",
-	"views"
+	"views",
+	"package-handlers"
 );
