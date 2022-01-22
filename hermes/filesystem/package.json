@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "2.5.x",
+    "express": ">=3.11.0",
     "stepup": "0.0.x",
     "rimraf": "1.0.x"
   },
